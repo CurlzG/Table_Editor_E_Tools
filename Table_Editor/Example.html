@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Page Title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+</style>
+</head>
+<body>
+
+  Name: <input id="myText">
+  
+  <p>Click the button to change the value of the text field.</p>
+  
+  <button onclick="myFunction()">Try it</button>
+  <p id="demo1"></p>
+  <script>
+  function myFunct(){
+  var charsToSearch = ["<", "t", "d"];
+  let text = document.getElementById("myText").value;
+  let textReturn = "";
+  for(var i = 0; i < text.length;i++){
+  var char = text.charAt(i);
+  if(char == 't' && text.charAt(i-1) != '\/'){
+  if(text.charAt(i+1) == 'd'){
+    if(text.charAt(i+3) == 's'){
+      while(text.charAt(i) != '\"' && text.charAt(i+1) != '>'){
+        i++;
+        if(text.charAt(i) == '\"' && text.charAt(i+1) == '>'){
+          textReturn += "THIS IS SUPPOSE TO BE AT THE END";
+        }
+      }
+      
+    } else {
+    textReturn += "td " + " style=\"padding:10PX\""; 
+    }
+  } else {
+  textReturn  += char;
+  }
+  }  else {
+  textReturn += char;
+  }
+  }
+  return textReturn;
+  }
+  
+  function myFunction() {
+  var text = myText;
+  document.getElementById("demo1").innerHTML = myFunct();
+  }
+  </script>
+  
+  </body>
+</html>
